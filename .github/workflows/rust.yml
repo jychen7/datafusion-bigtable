@@ -8,6 +8,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
+  BIGTABLE_EMULATOR_HOST: "localhost:8086"
 
 jobs:
   build:
@@ -20,8 +21,8 @@ jobs:
       uses: google-github-actions/setup-gcloud@v0.2.1
     - name: Start Bigtable Emulator
       run: |
-        gcloud components install beta bigtable
-        gcloud beta emulators bigtable start --host-port localhost:8086 &
+        gcloud components install beta bigtable cbt
+        gcloud beta emulators bigtable start --host-port $(BIGTABLE_EMULATOR_HOST) &
     - name: Seed Bigtable Emulator
       run: |
         cbt -instance dev -project emulator  createtable weather_balloons
@@ -30,4 +31,4 @@ jobs:
     - name: Build
       run: cargo build --verbose
     - name: Run tests
-      run: BIGTABLE_EMULATOR_HOST="localhost:8086" cargo test --verbose
+      run: cargo test --verbose
