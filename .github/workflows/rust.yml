@@ -27,7 +27,7 @@ jobs:
       run: |
         cbt -instance dev -project emulator  createtable weather_balloons
         cbt -instance dev -project emulator  createfamily weather_balloons measurements
-        cbt -instance dev -project emulator set weather_balloons us-west2#3698#2021-03-05-1200 measurements:pressure=94558@1646655317700000
+        cbt -instance dev -project emulator set weather_balloons us-west2#3698#2021-03-05-1200 measurements:pressure=94558@1646637317700000
     - name: Build
       run: cargo build --verbose
     - name: Run tests
