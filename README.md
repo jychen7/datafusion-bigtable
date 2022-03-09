@@ -1,3 +1,7 @@
+# Moved to [datafusion-contrib](https://github.com/datafusion-contrib/datafusion-bigtable)
+
+---
+
 # Datafusion-Bigtable
 Bigtable data source for [Apache Arrow Datafusion](https://github.com/apache/arrow-datafusion)
 
